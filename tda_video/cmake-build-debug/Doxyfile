@@ -1,0 +1,6 @@
+PROJECT_NAME           = "Práctica 1. Imágenes"
+OUTPUT_DIRECTORY       = /home/diego/Documents/ED/p3/tda_video/cmake-build-debug/doc_doxygen/
+INPUT                  = /home/diego/Documents/ED/p3/tda_video/.//include /home/diego/Documents/ED/p3/tda_video/.//src /home/diego/Documents/ED/p3/tda_video/.//doc
+GENERATE_LATEX         = NO
+IMAGE_PATH             = /home/diego/Documents/ED/p3/tda_video/.//doc
+EXTRACT_PRIVATE        = NO
