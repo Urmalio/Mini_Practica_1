@@ -15,6 +15,27 @@ Video Rebobinar(const Video &V)
   return aux;
 }
 
+void Error(ostream *os){
+  os << "Formato para ejecutar el programa:";
+  os << "./programa /directorio_entrada /directorio_salida";
+}
+
 int main(int argc, char * argv[]){
-//RELLENAR POR EL ESTUDIANTE
+  if(argc!=3)
+    Error(cerr);
+  
+  bool is_directory = filesystem::is_directory(argv[1]) && 
+                      filesystem::is_directory(argv[2]);
+  if(!is_directory)
+    Error(cerr);
+
+  const string PREFIJO = "fotograma";
+  Video v_e,v_s;
+
+  if(v_e.LeerVideo(argv[1]))
+    v_s = rebobinar(v_e);
+
+  v_s.EscribirVideo(argv[2], PREFIJO);
+
+  return 0;
 }
