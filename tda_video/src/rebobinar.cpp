@@ -6,10 +6,10 @@ using namespace std;
 
 Video Rebobinar(const Video &V)
 {
-  int n = v.size();
+  int n = V.size();
   Video aux(n);
   for(int i = 0; i < n; i++)
-    aux[i] = v[n-1];
+    aux[i] = V[n-1];
   
   return aux;
 }
@@ -29,12 +29,12 @@ int main(int argc, char * argv[]){
     Error(cerr);
 
   const string PREFIJO = "fotograma";
-  Video v_e,v_s;
+  Video v_e;
 
   if(v_e.LeerVideo(argv[1]))
-    v_s = rebobinar(v_e);
+    v_e = Rebobinar(v_e);
 
-  v_s.EscribirVideo(argv[2], PREFIJO);
+  v_e.EscribirVideo(argv[2], PREFIJO);
 
   return 0;
 }
