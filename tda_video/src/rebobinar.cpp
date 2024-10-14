@@ -20,6 +20,7 @@ void Error(ostream &os){
 }
 
 int main(int argc, char * argv[]){
+  // Control de errores
   if(argc!=3)
     Error(cerr);
   
