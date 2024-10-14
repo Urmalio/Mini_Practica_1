@@ -14,7 +14,7 @@ Video Rebobinar(const Video &V)
   return aux;
 }
 
-void Error(ostream *os){
+void Error(ostream &os){
   os << "Formato para ejecutar el programa:";
   os << "./programa /directorio_entrada /directorio_salida";
 }
