@@ -22,11 +22,17 @@ void Error(ostream &os){
 int main(int argc, char * argv[]){
   // Control de errores
   if(argc!=3)
+  {
     Error(cerr);
+    return (1);
+  }
   
   if(!(filesystem::is_directory(argv[1]) && 
        filesystem::is_directory(argv[2])))
+  {
     Error(cerr);
+    return (1);
+  }
 
   const string PREFIJO = "fotograma";
   Video v_e;
