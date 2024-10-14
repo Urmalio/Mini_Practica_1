@@ -23,18 +23,18 @@ int main(int argc, char * argv[]){
   if(argc!=3)
     Error(cerr);
   
-  bool is_directory = filesystem::is_directory(argv[1]) && 
-                      filesystem::is_directory(argv[2]);
-  if(!is_directory)
+  if(!(filesystem::is_directory(argv[1]) && 
+       filesystem::is_directory(argv[2])))
     Error(cerr);
 
   const string PREFIJO = "fotograma";
-  Video v_e,v_s;
+  Video v_e;
 
   if(v_e.LeerVideo(argv[1]))
-    v_s = rebobinar(v_e);
-
-  v_s.EscribirVideo(argv[2], PREFIJO);
+  {
+    v_e = rebobinar(v_e);
+    v_e.EscribirVideo(argv[2], PREFIJO);
+  }
 
   return 0;
 }
