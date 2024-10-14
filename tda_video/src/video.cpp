@@ -24,7 +24,7 @@ Video::Video(const Video &V): seq(V.seq){}
 Video::~Video(){seq.clear();}
 /**************************************************/
 Video &Video::operator=(const Video &V){
-    if (seq != V.seq) seq = V.seq;
+    seq = V.seq;
     return *this;
 }
 /**************************************************/
@@ -44,7 +44,6 @@ bool Video::LeerVideo(const string &path){
     read_directory(path, v);
 
     seq.clear();
-
 
     bool lectura_correcta = true;
     int i=0;
@@ -82,15 +81,14 @@ bool Video::EscribirVideo(const string & path, const string &prefijo)const{
     }
 
     int i=0;
-    string base = "/"+prefijo+"_";
+    char buffer [100];
+
     while (i<size() && exito){
-        exito = (*this)[i].Save(path+base+);
 
+        sprintf(buffer,"%s/%s_%3d", path.c_str(), prefijo.c_str(), i);
+        exito = (*this)[i].Save( buffer );
         if (exito)
-        {
             ++i;
-        }
-
     }
-
+    return exito;
 }
